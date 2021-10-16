@@ -7,7 +7,13 @@ function NavbarComponent() {
 
       <Nav pullRight>
         <Dropdown title="Account">
-          <Dropdown.Item>Login</Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => {
+              console.log("Do something");
+            }}
+          >
+            Login
+          </Dropdown.Item>
           <Dropdown.Item>Register</Dropdown.Item>
         </Dropdown>
       </Nav>

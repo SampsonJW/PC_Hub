@@ -2,7 +2,6 @@ import { Navbar, Nav, Dropdown } from "rsuite";
 import { useState } from "react";
 import ModalComponent from "../Modal/ModalComponent";
 import LoginModalBody from "../Modal/LoginModalBody/LoginModalBody";
-import "./Navbar.css";
 import UserBadgeIcon from "@rsuite/icons/UserBadge";
 
 function NavbarComponent() {
@@ -23,10 +22,6 @@ function NavbarComponent() {
             <i className="fas fa-robot"></i> PC_Hub
           </h5>
         </Navbar.Brand>
-        {/* <ButtonToolbar>
-        <Button onClick={handleOpen}> Open</Button>
-      </ButtonToolbar> */}
-
         <Nav pullRight style={{ height: "100%" }}>
           <Dropdown icon={<UserBadgeIcon />} title="Account">
             <Dropdown.Item onClick={handleOpen}>Login</Dropdown.Item>

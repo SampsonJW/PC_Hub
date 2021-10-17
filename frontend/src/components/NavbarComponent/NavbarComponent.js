@@ -11,7 +11,7 @@ function NavbarComponent(props) {
       <ModalComponent
         open={open}
         handleClose={handleClose}
-        title={props.title}
+        title="Enter your login details"
         body={props.body}
       />
       <Navbar.Brand href="#">PC_Hub</Navbar.Brand>

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AuthAPI.Data;
+using AuthAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AuthAPI.Controllers
 {
@@ -6,9 +8,14 @@ namespace AuthAPI.Controllers
     [ApiController]
     public class AuthController : Controller
     {
-        [HttpGet]
-        public IActionResult Hello() {
-            return Ok("Hello");
+        private readonly IUserRepository _repository;
+        public AuthController(IUserRepository repository)
+        {
+            _repository = repository;
+        }
+        [HttpPost("register")]
+        public IActionResult Register(User user) {
+            return Created("User Successfully Created", _repository.Create(user));
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EObkBruI4CWG7b0QOo0aS6U1dvh36IU+mIIRB7MtsvvwWe4MDPfK3hgqBjh/SA4SgQJF5qleo8V/6S/Hk4FDRQ==",
+  "dgSpecHash": "wymDmlGTUE8Ee8DgQIxleWI8wCx1mxSiBCUuMKsraRwB3VntOVyspWCY39yri6P39FmaLJ3WlsJo9JxTFwoxhQ==",
   "success": true,
-  "projectFilePath": "D:\\Websites\\PC_Hub\\backend\\backend\\backend.csproj",
+  "projectFilePath": "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\samps\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\samps\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

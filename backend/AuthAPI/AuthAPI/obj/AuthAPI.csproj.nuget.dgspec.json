@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Websites\\PC_Hub\\backend\\backend\\backend.csproj": {}
+    "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\AuthAPI.csproj": {}
   },
   "projects": {
-    "D:\\Websites\\PC_Hub\\backend\\backend\\backend.csproj": {
+    "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\AuthAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Websites\\PC_Hub\\backend\\backend\\backend.csproj",
-        "projectName": "backend",
-        "projectPath": "D:\\Websites\\PC_Hub\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
+        "projectName": "AuthAPI",
+        "projectPath": "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
         "packagesPath": "C:\\Users\\samps\\.nuget\\packages\\",
-        "outputPath": "D:\\Websites\\PC_Hub\\backend\\backend\\obj\\",
+        "outputPath": "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\samps\\AppData\\Roaming\\NuGet\\NuGet.Config",

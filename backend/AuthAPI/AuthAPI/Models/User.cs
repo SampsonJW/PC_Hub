@@ -4,9 +4,9 @@
     {
         public Guid? Id { get; set; }
 
-        public DateTime? CreatedAt {  get; set; } = default(DateTime?);
+        public DateTime? CreatedAt {  get; set; } = default;
 
-        public DateTime? UpdatedAt {  get; set;} = default(DateTime?);
+        public DateTime? UpdatedAt {  get; set;} = default;
 
         public string FirstName { get; set; }
 

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NZVIRskMxPZGOigZSBwg5WqdSpwn8vtbGkUYqW8E3AoTMEgJdwPTD4HrNZ7tko2x02UzgdsT40nXz2ZhUTXdOg==",
+  "dgSpecHash": "0YsOHFLi9gLoVvyu1HiCK+ftrjGhZKIlTLsWj1wA0sn6Xa7Oktm63Smf9HCLQ6166cG3Dz8yfIhOyeAUqFSQ7w==",
   "success": true,
   "projectFilePath": "D:\\Websites\\PC_Hub\\backend\\AuthAPI\\AuthAPI\\AuthAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\samps\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\samps\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\samps\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\samps\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

@@ -1,3 +1,9 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "type": "mssql.onprem",
+      "connectionId": "ConnectionStrings:Server=.;Database=PC_Hub;UserId=samps"
+    }
+  }
 }

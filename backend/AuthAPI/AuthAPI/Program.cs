@@ -1,12 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using AuthAPI.Models;
 using AuthAPI.Data;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer("Server=.;Database=PC_Hub;UserId=samps"));
+builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 

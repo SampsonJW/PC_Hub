@@ -12,8 +12,16 @@ namespace AuthAPI.Data
         public User Create(User user)
         {
             _context.Users.Add(user);
-            _context.SaveChanges();
+            try { _context.SaveChanges(); }
+            catch {
+                throw new Exception();
+            }
             return user;
+        }
+
+        public User GetByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(u => u.Email == email);
         }
     }
 }

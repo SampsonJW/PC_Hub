@@ -14,8 +14,9 @@ namespace AuthAPI.Controllers
         {
             _repository = repository;
         }
+
         [HttpPost("register")]
-        public IActionResult Register( User user)
+        public IActionResult Register(User user)
         {
             if (user is null)
             {
@@ -25,6 +26,20 @@ namespace AuthAPI.Controllers
             user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
         
             return Created("User Successfully Created", _repository.Create(user));
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(LoginDto dto)
+        {
+            if (dto is null)
+            {
+                return BadRequest(new {message = "Invalid credentials"});
+            }
+            var existingUser = _repository.GetByEmail(dto.Email);
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, existingUser.Password)) {
+                return BadRequest(new { error = "Invalid Credentials" });
+            }
+            return Ok(existingUser);
         }
     }
 }

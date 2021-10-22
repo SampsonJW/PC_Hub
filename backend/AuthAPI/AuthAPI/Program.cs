@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using AuthAPI.Models;
 using AuthAPI.Data;
 using System.Configuration;
+using AuthAPI.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 
 var app = builder.Build();

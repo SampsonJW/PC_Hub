@@ -1,5 +1,6 @@
 ﻿using AuthAPI.Data;
 using AuthAPI.Dtos;
+using AuthAPI.Helpers;
 using AuthAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,11 @@ namespace AuthAPI.Controllers
     public class AuthController : Controller
     {
         private readonly IUserRepository _repository;
-        public AuthController(IUserRepository repository)
+        private readonly JwtService _jwtService;
+        public AuthController(IUserRepository repository, JwtService jwtService)
         {
             _repository = repository;
+            _jwtService = jwtService;
         }
 
         [HttpPost("register")]
@@ -35,11 +38,16 @@ namespace AuthAPI.Controllers
             {
                 return BadRequest(new {message = "Invalid credentials"});
             }
-            var existingUser = _repository.GetByEmail(dto.Email);
-            if (!BCrypt.Net.BCrypt.Verify(dto.Password, existingUser.Password)) {
+            var user = _repository.GetByEmail(dto.Email);
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.Password)) {
                 return BadRequest(new { error = "Invalid Credentials" });
             }
-            return Ok(existingUser);
+
+            var jwt = _jwtService.Generate(user.Id.ToString());
+
+            Response.Cookies.Append("jwt", jwt, new CookieOptions {  HttpOnly = true });
+
+            return Ok(new {jwt});
         }
     }
 }

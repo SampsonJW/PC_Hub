@@ -11,7 +11,6 @@ D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\bin\Debug\net6.0\Swashbuckle.AspNetCo
 D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\obj\Debug\net6.0\AuthAPI.GlobalUsings.g.cs
-D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\obj\Debug\net6.0\AuthAPI.csproj.AssemblyReference.cache
 D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\obj\Debug\net6.0\AuthAPI.GeneratedMSBuildEditorConfig.editorconfig
 D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\obj\Debug\net6.0\AuthAPI.AssemblyInfoInputs.cache
 D:\Websites\PC_Hub\backend\AuthAPI\AuthAPI\obj\Debug\net6.0\AuthAPI.AssemblyInfo.cs

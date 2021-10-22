@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer("Server=SAMPSON-WINDOWS;Database=PC_Hub;UserId=samps"));
+builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer("Server=.;Database=PC_Hub;UserId=samps"));
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 

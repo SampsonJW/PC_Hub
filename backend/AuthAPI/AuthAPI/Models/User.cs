@@ -2,18 +2,18 @@
 {
     public class User
     {
-        string Id { get; set; }
+        public string? Id { get; set; }
 
-        DateTime? CreatedAt {  get; set; } = default(DateTime?);
+        public DateTime? CreatedAt {  get; set; } = default(DateTime?);
 
-        DateTime? UpdatedAt {  get; set;} = default(DateTime?);
+        public DateTime? UpdatedAt {  get; set;} = default(DateTime?);
 
-        string FirstName { get; set; }
+        public string FirstName { get; set; }
 
-        string LastName { get; set; }
+        public string LastName { get; set; }
 
-        string Email { get; set; }
+        public string Email { get; set; }
 
-        string Password { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -1,9 +1,3 @@
 {
-  "dependencies": {
-    "mssql1": {
-      "secretStore": "LocalSecretsFile",
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:Server=SAMPSON-WINDOWS;Database=PC_Hub;UserId=samps"
-    }
-  }
+  "dependencies": {}
 }

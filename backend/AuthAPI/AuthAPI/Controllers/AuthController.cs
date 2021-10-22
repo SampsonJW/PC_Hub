@@ -3,7 +3,6 @@ using AuthAPI.Dtos;
 using AuthAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace AuthAPI.Controllers
 {
     [Route("auth")]
@@ -16,15 +15,15 @@ namespace AuthAPI.Controllers
             _repository = repository;
         }
         [HttpPost("register")]
-        public IActionResult Register(string dto) {
-            Console.WriteLine(dto); 
-            //User user = new()
-            //{ FirstName = dto.FirstName,
-            //    LastName = dto.LastName, 
-            //    Email = dto.Email,
-            //    Password = BCrypt.Net.BCrypt.HashPassword(dto.Password)
-            //};
-            User user = new User();
+        public IActionResult Register( User user)
+        {
+            if (user is null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
+
+            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+        
             return Created("User Successfully Created", _repository.Create(user));
         }
     }

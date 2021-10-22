@@ -9,6 +9,7 @@
       "AuthAPI/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.2",
+          "Microsoft.EntityFrameworkCore": "6.0.0-rc.2.21480.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0-rc.2.21480.5",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0-rc.2.21480.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.0-rc.2.21511.1",

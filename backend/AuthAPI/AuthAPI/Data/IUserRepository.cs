@@ -6,5 +6,6 @@ namespace AuthAPI.Data
     {
         User Create(User user);
         User GetByEmail(string email);
+        User GetById(string id);
     }
 }

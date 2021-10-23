@@ -1,10 +1,10 @@
-import { Modal, Button } from "rsuite";
+import { Modal } from "rsuite";
 import LoginModalBody from "./LoginModalBody/LoginModalBody";
 
 const ModalComponent = (props) => {
   let modalBody;
   if (props.type === "login") {
-    modalBody = <LoginModalBody />;
+    modalBody = <LoginModalBody handleClose={props.handleClose} />;
   }
   return (
     <div className="modal-container">

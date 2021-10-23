@@ -1,7 +1,11 @@
-﻿namespace AuthAPI.Helpers
+﻿using System.IdentityModel.Tokens.Jwt;
+
+namespace AuthAPI.Helpers
 {
     public interface IJwtService
     {
-        public string Generate(string id);
+        string Generate(string id);
+
+        JwtSecurityToken Verify(string jwt);
     }
 }

@@ -11,8 +11,8 @@ namespace AuthAPI.Controllers
     public class AuthController : Controller
     {
         private readonly IUserRepository _repository;
-        private readonly JwtService _jwtService;
-        public AuthController(IUserRepository repository, JwtService jwtService)
+        private readonly IJwtService _jwtService;
+        public AuthController(IUserRepository repository, IJwtService jwtService)
         {
             _repository = repository;
             _jwtService = jwtService;
@@ -39,6 +39,11 @@ namespace AuthAPI.Controllers
                 return BadRequest(new {message = "Invalid credentials"});
             }
             var user = _repository.GetByEmail(dto.Email);
+
+            if (user == null) { 
+                return BadRequest(new {message = "User does not exist"});
+            }
+
             if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.Password)) {
                 return BadRequest(new { error = "Invalid Credentials" });
             }
@@ -48,6 +53,16 @@ namespace AuthAPI.Controllers
             Response.Cookies.Append("jwt", jwt, new CookieOptions {  HttpOnly = true });
 
             return Ok(new {jwt});
+        }
+
+        [HttpGet("user")]
+        public IActionResult GetUser()
+        {
+            var jwt = Request.Cookies["jwt"];
+
+            var token = _jwtService.Verify(jwt);
+
+            var userId = token.Issuer;
         }
     }
 }

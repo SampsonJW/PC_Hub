@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AuthAPI.Helpers
 {
-    public class JwtService
+    public class JwtService : IJwtService    
     {
         private string secureKey = "&zWqzK2MKCGo7Z2N3$dIViDB5QayQUkIUrerBmPSVd!*Y9NrpIM";
         public string Generate(string id) {
@@ -16,6 +16,21 @@ namespace AuthAPI.Helpers
             var securityToken = new JwtSecurityToken(header, payload);
 
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
+        }
+
+        public JwtSecurityToken Verify(string jwt)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(secureKey);
+            tokenHandler.ValidateToken(jwt, new TokenValidationParameters{
+                IssuerSigningKey = new SymmetricSecurityKey(key),
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = false,
+                ValidateAudience = false
+            }, out SecurityToken validatedToken);
+
+            return (JwtSecurityToken) validatedToken;
+
         }
     }
 }

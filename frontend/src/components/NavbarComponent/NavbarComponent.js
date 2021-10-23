@@ -1,7 +1,6 @@
 import { Navbar, Nav, Dropdown } from "rsuite";
 import { useState } from "react";
 import ModalComponent from "../Modal/ModalComponent";
-import LoginModalBody from "../Modal/LoginModalBody/LoginModalBody";
 import UserBadgeIcon from "@rsuite/icons/UserBadge";
 
 function NavbarComponent() {
@@ -14,7 +13,7 @@ function NavbarComponent() {
         open={open}
         handleClose={handleClose}
         title="Enter your login details"
-        body={<LoginModalBody />}
+        type="login"
       />
       <Navbar>
         <Navbar.Brand href="#">

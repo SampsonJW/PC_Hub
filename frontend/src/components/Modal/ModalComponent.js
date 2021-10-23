@@ -1,21 +1,18 @@
 import { Modal, Button } from "rsuite";
+import LoginModalBody from "./LoginModalBody/LoginModalBody";
 
 const ModalComponent = (props) => {
+  let modalBody;
+  if (props.type === "login") {
+    modalBody = <LoginModalBody />;
+  }
   return (
     <div className="modal-container">
       <Modal open={props.open} onClose={props.handleClose}>
         <Modal.Header style={{ textAlign: "center" }}>
           <h4>{props.title}</h4>
         </Modal.Header>
-        <Modal.Body>{props.body}</Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.handleClose} appearance="primary">
-            Ok
-          </Button>
-          <Button onClick={props.handleClose} appearance="subtle">
-            Cancel
-          </Button>
-        </Modal.Footer>
+        {modalBody}
       </Modal>
     </div>
   );

@@ -58,11 +58,28 @@ namespace AuthAPI.Controllers
         [HttpGet("user")]
         public IActionResult GetUser()
         {
-            var jwt = Request.Cookies["jwt"];
+            try
+            {
+                var jwt = Request.Cookies["jwt"];
 
-            var token = _jwtService.Verify(jwt);
+                var token = _jwtService.Verify(jwt);
 
-            var userId = token.Issuer;
+                var userId = token.Issuer;
+
+                var user = _repository.GetById(userId);
+
+                return Ok(user);
+            }
+            catch { 
+                return Unauthorized();
+            }
+        }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("jwt");
+            return Ok(new {message = "Successfully logged out"});
         }
     }
 }

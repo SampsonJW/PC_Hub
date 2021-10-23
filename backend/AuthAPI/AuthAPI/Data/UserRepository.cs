@@ -23,5 +23,10 @@ namespace AuthAPI.Data
         {
             return _context.Users.FirstOrDefault(u => u.Email == email);
         }
+
+        public User GetById(string id)
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == Guid.Parse(id));
+        }
     }
 }

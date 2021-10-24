@@ -8,7 +8,7 @@ const ModalComponent = (props) => {
   }
   return (
     <div className="modal-container">
-      <Modal open={props.open} onClose={props.handleClose}>
+      <Modal open={props.open} onClose={props.handleClose} size="xs">
         <Modal.Header style={{ textAlign: "center" }}>
           <h4>{props.title}</h4>
         </Modal.Header>

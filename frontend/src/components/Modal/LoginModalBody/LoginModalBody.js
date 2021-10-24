@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Form, Schema, Modal, Button } from "rsuite";
 
 const model = Schema.Model({
-  email: Schema.Types.StringType().isEmail(
-    "Please enter a valid email address."
-  ),
+  email: Schema.Types.StringType()
+    .isEmail("Please enter a valid email address.")
+    .isRequired("This field is required"),
+  password: Schema.Types.StringType().isRequired("Password is required."),
 });
 
 const LoginModalBody = (props) => {
+  const { accepter } = props;
   const submit = () => {
     console.log(email, password);
   };
@@ -18,12 +20,13 @@ const LoginModalBody = (props) => {
       <Modal.Body>
         {props.body}
 
-        <Form model={model} onSubmit={submit}>
+        <Form fluid model={model} onSubmit={submit}>
           <Form.Group controlId="email">
             <Form.ControlLabel>Email</Form.ControlLabel>
             <Form.Control
               name="email"
               type="email"
+              accepter={accepter}
               onChange={(e) => setEmail(e)}
             />
           </Form.Group>
@@ -32,6 +35,7 @@ const LoginModalBody = (props) => {
             <Form.Control
               name="password"
               type="password"
+              accepter={accepter}
               autoComplete="off"
               onChange={(e) => setPassword(e)}
             />

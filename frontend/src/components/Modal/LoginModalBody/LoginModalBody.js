@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form, Schema, Modal, Button } from "rsuite";
+import axios from "axios";
+import { Form, Schema, Modal, Button, ButtonToolbar } from "rsuite";
+// import AuthApi from "../../../api/AuthApi";
 
 const model = Schema.Model({
   email: Schema.Types.StringType()
@@ -11,15 +13,23 @@ const model = Schema.Model({
 const LoginModalBody = (props) => {
   const { accepter } = props;
   const submit = () => {
-    console.log(email, password);
+    let user = {
+      Email: email,
+      Password: password,
+    };
+    axios
+      .post(`${process.env.REACT_APP_AUTH_API}/auth/login`, user)
+      .then((res) => {
+        console.log(res);
+      });
   };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
     <div>
       <Modal.Body>
         {props.body}
-
         <Form fluid model={model} onSubmit={submit}>
           <Form.Group controlId="email">
             <Form.ControlLabel>Email</Form.ControlLabel>
@@ -41,12 +51,14 @@ const LoginModalBody = (props) => {
             />
           </Form.Group>
           <Modal.Footer>
-            <Button appearance="primary" type="submit">
-              Login
-            </Button>
-            <Button onClick={props.handleClose} appearance="subtle">
-              Cancel
-            </Button>
+            <ButtonToolbar style={{ margin: "0 1rem 0 0" }}>
+              <Button appearance="primary" type="submit">
+                Login
+              </Button>
+              <Button onClick={props.handleClose} appearance="subtle">
+                Cancel
+              </Button>
+            </ButtonToolbar>
           </Modal.Footer>
         </Form>
       </Modal.Body>

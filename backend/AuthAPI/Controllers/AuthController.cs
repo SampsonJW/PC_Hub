@@ -50,9 +50,12 @@ namespace AuthAPI.Controllers
 
             var jwt = _jwtService.Generate(user.Id.ToString());
 
-            Response.Cookies.Append("jwt", jwt);
+            Response.Cookies.Append("jwt", jwt, new CookieOptions
+            {
+                HttpOnly = true,
+            });
 
-            return Ok(new {jwt});
+            return Ok(new {message = "success"});
         }
 
         [HttpGet("user")]

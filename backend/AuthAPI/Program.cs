@@ -4,9 +4,19 @@ using AuthAPI.Data;
 using AuthAPI.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
-builder.Services.AddCors();
+builder.Services.AddCors(options => { options.AddPolicy(name: MyAllowSpecificOrigins,
+     builder =>
+     {
+         builder.WithOrigins("http://localhost:3000")
+         .AllowAnyHeader()
+         .AllowCredentials()
+         .AllowAnyMethod();
+     });
+});
+    
 builder.Services.AddDbContext<UserContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -22,12 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors(opt => opt
-.WithOrigins(new[] {"http://localhost:3000"})
-.AllowAnyHeader()
-.AllowAnyMethod()
-.AllowCredentials()
-);
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

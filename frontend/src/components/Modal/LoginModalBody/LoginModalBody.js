@@ -17,6 +17,8 @@ const LoginModalBody = (props) => {
       Email: email,
       Password: password,
     };
+
+    axios.defaults.withCredentials = true;
     axios
       .post(`${process.env.REACT_APP_AUTH_API}/auth/login`, user)
       .then((res) => {

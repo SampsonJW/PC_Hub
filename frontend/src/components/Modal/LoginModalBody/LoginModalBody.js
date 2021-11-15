@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Form, Schema, Modal, Button, ButtonToolbar } from 'rsuite';
-// import AuthApi from "../../../api/AuthApi";
+import AuthApi from '../../../api/AuthApi.js';
 
 const model = Schema.Model({
   email: Schema.Types.StringType()
@@ -12,18 +11,13 @@ const model = Schema.Model({
 
 const LoginModalBody = (props) => {
   const { accepter } = props;
-  const submit = () => {
+  const submit = async () => {
     let user = {
       Email: email,
       Password: password,
     };
 
-    axios.defaults.withCredentials = true;
-    axios
-      .post(`${process.env.REACT_APP_AUTH_API}/auth/login`, user)
-      .then((res) => {
-        console.log(res);
-      });
+    await AuthApi.loginUser(user);
   };
 
   const [email, setEmail] = useState('');

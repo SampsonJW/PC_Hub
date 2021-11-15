@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Form, Schema, Modal, Button, ButtonToolbar } from "rsuite";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Form, Schema, Modal, Button, ButtonToolbar } from 'rsuite';
 // import AuthApi from "../../../api/AuthApi";
 
 const model = Schema.Model({
   email: Schema.Types.StringType()
-    .isEmail("Please enter a valid email address.")
-    .isRequired("This field is required"),
-  password: Schema.Types.StringType().isRequired("Password is required."),
+    .isEmail('Please enter a valid email address.')
+    .isRequired('This field is required'),
+  password: Schema.Types.StringType().isRequired('Password is required.'),
 });
 
 const LoginModalBody = (props) => {
@@ -26,8 +26,8 @@ const LoginModalBody = (props) => {
       });
   };
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div>
       <Modal.Body>
@@ -53,7 +53,7 @@ const LoginModalBody = (props) => {
             />
           </Form.Group>
           <Modal.Footer>
-            <ButtonToolbar style={{ margin: "0 1rem 0 0" }}>
+            <ButtonToolbar style={{ margin: '0 1rem 0 0' }}>
               <Button appearance="primary" type="submit">
                 Login
               </Button>
